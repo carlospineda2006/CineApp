@@ -1,0 +1,107 @@
+.cartelera {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-family: 'Arial', sans-serif;
+}
+
+p {
+  text-align: center;
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 300px;
+  border-bottom: 2px solid #ddd;
+}
+
+.card h3 {
+  font-size: 1.3em;
+  color: #333;
+  margin: 15px;
+}
+
+.card p {
+  font-size: 1em;
+  color: #555;
+  margin: 0 15px 15px 15px;
+}
+
+.card a {
+  display: block;
+  text-align: center;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 0;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px 15px 15px;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+.card a:hover {
+  background-color: #0056b3;
+}
+
+.card img {
+  border-radius: 5px 5px 0 0;
+}
+.sinopsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limitar a 3 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Poner "..." al final si el texto se corta */
+  font-size: 1em;
+  color: #555;
+  margin: 0 15px 15px 15px;
+}
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.filtros label {
+  font-weight: bold;
+}
+
+.filtros select, .filtros input {
+  padding: 5px;
+  font-size: 1em;
+}
+

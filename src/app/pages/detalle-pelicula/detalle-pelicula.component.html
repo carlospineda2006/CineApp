@@ -1,0 +1,47 @@
+<button (click)="volverCartelera()" class="btn-volver">
+  ⬅ Volver a la Cartelera
+</button>
+
+<div class="detalle" *ngIf="pelicula; else loading">
+  <img [src]="pelicula.imagenUrl" alt="{{ pelicula.titulo }}">
+  <h2>{{ pelicula.titulo }}</h2>
+
+  <div class="sinopsis-card">
+    <p><strong>Sinopsis:</strong> {{ pelicula.sinopsis }}</p>
+  </div>
+
+  <p><strong>Género:</strong> {{ pelicula.generoId }}</p>
+  <p><strong>Duración:</strong> {{ pelicula.duracion }} min</p>
+</div>
+
+<div class="funciones" *ngIf="funciones.length > 0">
+  <h3>Funciones Disponibles</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Sala</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
+        <th>Entradas Disponibles</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let funcion of funciones">
+        <td>{{ funcion.sala }}</td>
+        <td>{{ funcion.horaInicio }}</td>
+        <td>{{ funcion.horaFin }}</td>
+        <td>{{ funcion.entradasDisponibles }}</td>
+        <td>
+          <button (click)="reservarEntrada(funcion)" class="btn-reservar">
+            Reservar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <p>Cargando datos de la película...</p>
+</ng-template>

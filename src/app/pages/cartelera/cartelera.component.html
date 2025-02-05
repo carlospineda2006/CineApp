@@ -1,0 +1,36 @@
+<div class="cartelera">
+  <h2>Cartelera de Películas</h2>
+
+  <div class="filtros">
+    <label for="sala">Sala:</label>
+    <select id="sala" (change)="onFilterChange()" [(ngModel)]="filtro.sala">
+      <option value="">Todas</option>
+      <option *ngFor="let sala of salas" [value]="sala.salaId">{{ sala.nombre }}</option>
+    </select>
+
+    <label for="genero">Género:</label>
+    <select id="genero" (change)="onFilterChange()" [(ngModel)]="filtro.genero" class="form-control">
+      <option value="">Todos</option>
+      <option *ngFor="let genero of generos" [value]="genero.generoId">{{ genero.nombre}}</option>
+    </select>
+
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" (input)="onFilterChange()" [(ngModel)]="filtro.titulo" placeholder="Filtrar por título">
+
+    <label for="hora">Hora de Inicio:</label>
+    <input type="time" id="hora" (change)="onFilterChange()" [(ngModel)]="filtro.horaInicio">
+  </div>
+
+  <div class="grid">
+    <div *ngFor="let pelicula of peliculasFiltradas" class="card">
+      <img [src]="pelicula.imagenUrl || 'assets/default-movie.jpg'" alt="{{ pelicula.titulo }}">
+      <h3>{{ pelicula.titulo }}</h3>
+      <p><b>Genero:</b> {{ pelicula.genero }}</p>
+      <p class="sinopsis"><b>Sinopsis: </b>{{ pelicula.sinopsis }}</p>
+      <p><b>Duracion:</b> {{ pelicula.duracion }} minutos</p>
+      <p><b>Hora Inicio: </b>{{ pelicula.horaInicio }}</p>
+      <p><b>Sala: </b>{{ pelicula.sala }}</p>
+      <a [routerLink]="['/pelicula', pelicula.peliculaId]">Ver Detalle</a>
+    </div>
+  </div>
+</div>
